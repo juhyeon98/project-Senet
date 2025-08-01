@@ -8,26 +8,26 @@ namespace Juhyeon.Actor
 
     public abstract class AActor : MonoBehaviour
     {
-        private MovementComponent m_movement;
-        private StatManagerComponent m_statManager;
-        private StatusConditionComponent m_statusCondition;
+        protected MovementComponent movement;
+        protected StatManagerComponent statManger;
+        protected StatusConditionComponent statusCondition;
 
         private void Start()
         {
-            m_movement = GetComponent<MovementComponent>();
-            if (m_movement == null)
+            movement = GetComponent<MovementComponent>();
+            if (movement == null)
             {
                 throw new System.Exception("Actor : MovementComponent not exist");
             }
 
-            m_statManager = GetComponent<StatManagerComponent>();
-            if (m_statManager == null)
+            statManger = GetComponent<StatManagerComponent>();
+            if (statManger == null)
             {
                 throw new System.Exception("Actor : StatManagerComponent not exist");
             }
 
-            m_statusCondition = GetComponent<StatusConditionComponent>();
-            if (m_statusCondition == null)
+            statusCondition = GetComponent<StatusConditionComponent>();
+            if (statusCondition == null)
             {
                 throw new System.Exception("Actor : StatusConditionCompoment not exist");
             }
