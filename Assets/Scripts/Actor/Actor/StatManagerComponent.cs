@@ -1,3 +1,4 @@
+using Juhyeon.SO;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,11 +20,32 @@ namespace Juhyeon.Actor
             m_statDB[EStatType.HP] = (int)statData.HP;
             m_statDB[EStatType.AP] = (int)statData.AP;
             m_statDB[EStatType.ATK] = (int)statData.ATK;
+            var playerStat = statData as PlayerStatDataScriptableObject;
+            if (playerStat != null)
+            {
+                m_statDB[EStatType.MOV] = (int)playerStat.MOV;
+            }
+
+            // test
+            var player = statData as PlayerStatDataScriptableObject;
+            if (playerStat != null)
+            {
+                Debug.Log($"Player HP : {player.HP}");
+                Debug.Log($"Player AP : {player.AP}");
+                Debug.Log($"Player MOV : {player.MOV}");
+                Debug.Log($"Player ATK : {player.ATK}");
+            }
+            var monster = statData as MonsterDataScriptableObject;
+            if (monster != null)
+            {
+                Debug.Log($"{monster.name} HP : {monster.HP}");
+                Debug.Log($"{monster.name}.AP : {monster.AP}");
+                Debug.Log($"{monster.name} ATK : {monster.ATK}");
+            }
         }
 
         public void InitializeMOV()
         {
-            m_statDB[EStatType.MOV] = 1;
         }
 
         public void ApplyStat(EStatType type, int value)
@@ -37,5 +59,13 @@ namespace Juhyeon.Actor
         }
 
         public int GetStatValue(EStatType type) => m_statDB[type];
+
+        public IEnumerable<(EStatType type, int value)> GetStatValue()
+        {
+            foreach (var item in m_statDB)
+            {
+                yield return (item.Key, item.Value);
+            }
+        }
     }
 }
