@@ -10,19 +10,30 @@ namespace Juhyeon.Actor
 
     public class StatManagerComponent : MonoBehaviour
     {
-        // Stat Scriptable Object 참조 추가
+        public Juhyeon.SO.StatDataScriptableObject statData;
         private Dictionary<EStatType, int> m_statDB = new Dictionary<EStatType, int>();
 
         private void Awake()
         {
-            // Scriptable Object를 DB로 이동
+            m_statDB.Clear();
+            m_statDB[EStatType.HP] = (int)statData.HP;
+            m_statDB[EStatType.AP] = (int)statData.AP;
+            m_statDB[EStatType.ATK] = (int)statData.ATK;
+        }
+
+        public void InitializeMOV()
+        {
+            m_statDB[EStatType.MOV] = 1;
         }
 
         public void ApplyStat(EStatType type, int value)
         {
-            int statValue = m_statDB[type];
-            statValue += value;
-            m_statDB[type] = statValue;
+            if (m_statDB.ContainsKey(type))
+            {
+                int statValue = m_statDB[type];
+                statValue += value;
+                m_statDB[type] = statValue;
+            }
         }
 
         public int GetStatValue(EStatType type) => m_statDB[type];

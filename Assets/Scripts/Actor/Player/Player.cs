@@ -15,6 +15,8 @@ namespace Juhyeon.Actor
             {
                 throw new System.Exception("Player: DiceInventory not exist");
             }
+
+            statManger.InitializeMOV();
         }
 
         public void OnMoveInput(InputAction.CallbackContext context)
