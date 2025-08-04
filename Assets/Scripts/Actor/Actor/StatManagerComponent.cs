@@ -20,32 +20,25 @@ namespace Juhyeon.Actor
             m_statDB[EStatType.HP] = (int)statData.HP;
             m_statDB[EStatType.AP] = (int)statData.AP;
             m_statDB[EStatType.ATK] = (int)statData.ATK;
-            var playerStat = statData as PlayerStatDataScriptableObject;
-            if (playerStat != null)
+            if (statData is PlayerStatDataScriptableObject playerStat)
             {
                 m_statDB[EStatType.MOV] = (int)playerStat.MOV;
             }
 
             // test
-            var player = statData as PlayerStatDataScriptableObject;
-            if (playerStat != null)
+            if (statData is PlayerStatDataScriptableObject player)
             {
                 Debug.Log($"Player HP : {player.HP}");
                 Debug.Log($"Player AP : {player.AP}");
                 Debug.Log($"Player MOV : {player.MOV}");
                 Debug.Log($"Player ATK : {player.ATK}");
             }
-            var monster = statData as MonsterDataScriptableObject;
-            if (monster != null)
+            if (statData is MonsterDataScriptableObject monster)
             {
                 Debug.Log($"{monster.name} HP : {monster.HP}");
                 Debug.Log($"{monster.name}.AP : {monster.AP}");
                 Debug.Log($"{monster.name} ATK : {monster.ATK}");
             }
-        }
-
-        public void InitializeMOV()
-        {
         }
 
         public void ApplyStat(EStatType type, int value)
