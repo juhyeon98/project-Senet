@@ -1,3 +1,4 @@
+using Juhyeon.SO;
 using UnityEngine;
 
 namespace Juhyeon.Actor
@@ -7,7 +8,7 @@ namespace Juhyeon.Actor
     {
         private AISystemComponent m_aiSystem;
 
-        private void Start()
+        private void Awake()
         {
             m_aiSystem = GetComponent<AISystemComponent> ();
             if (m_aiSystem == null)
