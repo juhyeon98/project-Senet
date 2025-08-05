@@ -1,3 +1,4 @@
+using Juhyeon.Dice;
 using UnityEngine;
 
 namespace Juhyeon.SO
@@ -39,6 +40,9 @@ namespace Juhyeon.SO
         public float probabillity;
 
         // 이후에 반환값을 ActivateEffectData로 변경
-        public virtual void ApplyEffect(GameObject target) { }
+        public virtual ActivateEffectData ApplyEffect(GameObject target)
+        {
+            return null;
+        }
     }
 }

@@ -12,7 +12,7 @@ namespace Juhyeon.Actor
         protected StatManagerComponent statManger;
         protected StatusConditionComponent statusCondition;
 
-        private void Start()
+        protected virtual void Awake()
         {
             movement = GetComponent<MovementComponent>();
             if (movement == null)
