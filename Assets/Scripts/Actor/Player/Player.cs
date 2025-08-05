@@ -1,4 +1,4 @@
-using Juhyeon.SO;
+using Juhyeon.Dice;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,8 +9,9 @@ namespace Juhyeon.Actor
     {
         private DiceInventoryComponent m_diceInventory;
 
-        private void Start()
+        protected override void Awake()
         {
+            base.Awake();
             m_diceInventory = GetComponent<DiceInventoryComponent>();
             if (m_diceInventory == null)
             {
@@ -31,10 +32,24 @@ namespace Juhyeon.Actor
             movement.MoveTo(direction);
         }
 
-        // RoleDice
+        public void RoleDice()
+        {
+            foreach (var effect in m_diceInventory.RoleAllDice())
+            {
+                EffectManager.ApplyEffect(effect, this);
+            }
+        }
 
-        // GetDice -> 주사위를 얻었을 때
+        public void GetDice(Juhyeon.Dice.Dice dice)
+        {
+            m_diceInventory.AddOneDice(dice);
+            // AddOneDice의 결과가 false -> 하나를 골라 교체
+        }
 
-        // PutDownDice -> 주사위를 버릴 때
+        public void PutDownDice(Juhyeon.Dice.Dice dice)
+        {
+            // 먼저 하나를 선택
+            m_diceInventory.RemoveDice(dice);
+        }
     }
 }
