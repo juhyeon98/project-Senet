@@ -21,3 +21,6 @@ namespace Juhyeon.StatusConditionSystem
         }
     }
 }
+
+// TODO
+// - 각 상태 이상 구현
