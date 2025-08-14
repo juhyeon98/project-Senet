@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Juhyeon.Behaviour;
 using Juhyeon.StatSystem;
+using Juhyeon.StatusConditionSystem;
 
 namespace Juhyeon.Attackable
 {
