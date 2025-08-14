@@ -1,9 +1,16 @@
+using Juhyeon.Attackable;
+using Juhyeon.StageSystem;
 using System.Collections;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace Juhyeon.Behaviour
 {
+    public enum EMovementType
+    {
+        None, Move, Attack
+    }
+
     public class MovementController : MonoBehaviour
     {
         #region Fields
@@ -18,11 +25,11 @@ namespace Juhyeon.Behaviour
         #endregion
 
         #region Movement Methods
-        public EObjectType Move(Vector2 direction)
+        public EMovementType Move(Vector2 direction)
         {
             if (b_isMoving == false)
             {
-                return EObjectType.None;
+                return EMovementType.None;
             }
 
             Vector2Int nextFieldPosition = m_fieldPosition;
@@ -30,18 +37,20 @@ namespace Juhyeon.Behaviour
             else if (direction == Vector2Int.right) nextFieldPosition.x++;
             else if (direction == Vector2Int.up) nextFieldPosition.y--;
             else if (direction == Vector2Int.down) nextFieldPosition.y++;
-            
-            EObjectType obj = Stage.GetObject(nextFieldPosition);
-            switch(obj)
+
+            if (StageManager.Instance.Stage.GetTileType(nextFieldPosition) == ETileType.Wall)
             {
-                case EObjectType.Monster:
-                    StartCoroutine(AttackAnimation(direction));
-                    break;
-                case EObjectType.Empty:
-                    StartCoroutine(MoveAnimation(direction, nextFieldPosition));
-                    break;
+                return EMovementType.None;
             }
-            return obj;
+
+            var obj = StageManager.Instance.Stage.GetObject(nextFieldPosition);
+            if (obj is Monster)
+            {
+                StartCoroutine(AttackAnimation(direction));
+                return EMovementType.Attack;
+            }
+            StartCoroutine(MoveAnimation(direction, nextFieldPosition));
+            return EMovementType.Move;
         }
 
         private IEnumerator MoveAnimation(Vector2 direction, Vector2Int nextFieldPosition)

@@ -5,7 +5,7 @@ namespace Juhyeon.StageSystem
 {
     public enum ETileType
     {
-        None, Trap, WaterPuddle, PoisionPuddle, Chest, Exit
+        None, Wall, Trap, WaterPuddle, PoisionPuddle, Chest, Exit
     }
 
     public class Tile : MonoBehaviour

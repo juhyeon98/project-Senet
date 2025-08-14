@@ -22,10 +22,9 @@ namespace Juhyeon.StageSystem
             //prim algorithm
         }
 
-        public IAttackable GetObject(Vector2Int position)
-        {
-            return m_field[position.y, position.x].OnTile;
-        }
+        public ETileType GetTileType(Vector2Int position) => m_field[position.y, position.x].TileType;
+
+        public IAttackable GetObject(Vector2Int position) => m_field[position.y, position.x].OnTile;
     }
 }
 
