@@ -1,8 +1,9 @@
 using UnityEngine;
+using Juhyeon.Behaviour;
 
 namespace Juhyeon.Attackable
 {
-    [RequireComponent(typeof(AIBeauvour))]
+    [RequireComponent(typeof(AIBehaviour))]
     public class Monster : MonoBehaviour, IAttackable
     {
         #region Feild
@@ -31,7 +32,7 @@ namespace Juhyeon.Attackable
             m_movementController = GetComponent<MovementController>();
             m_statManager = GetComponent<StatManager>();
             m_statusConditionManager = GetComponent<StatusConditionManager>();
-            m_aiBeauvour = GetComponent<AIBeauvour>();
+            m_aiBeauvour = GetComponent<AIBehaviour>();
         }
     }
 }

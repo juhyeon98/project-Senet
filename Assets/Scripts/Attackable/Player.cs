@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Juhyeon.Behaviour;
 
 namespace Juhyeon.Attackable
 {
