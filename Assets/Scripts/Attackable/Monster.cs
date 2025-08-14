@@ -5,6 +5,9 @@ using Juhyeon.StatusConditionSystem;
 
 namespace Juhyeon.Attackable
 {
+    [RequireComponent(typeof(MovementController))]
+    [RequireComponent(typeof(StatManager))]
+    [RequireComponent(typeof(StatusConditionManager))]
     [RequireComponent(typeof(AIBehaviour))]
     public class Monster : MonoBehaviour, IAttackable
     {

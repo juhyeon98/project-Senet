@@ -6,6 +6,9 @@ using Juhyeon.StatusConditionSystem;
 
 namespace Juhyeon.Attackable
 {
+    [RequireComponent(typeof(MovementController))]
+    [RequireComponent(typeof(StatManager))]
+    [RequireComponent(typeof(StatusConditionManager))]
     [RequireComponent(typeof(DiceInventory))]
     public class Player : MonoBehaviour, IAttackable
     {
