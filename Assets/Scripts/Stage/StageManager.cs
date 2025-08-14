@@ -41,8 +41,15 @@ namespace Juhyeon.StageSystem
 
         private void LoadStage()
         {
-            GameObject stageObject = new GameObject(typeof(Stage).Name);
-            Stage = stageObject.AddComponent<Stage>();
+            if (Stage == null)
+            {
+                Stage = FindFirstObjectByType<Stage>();
+                if (Stage == null)
+                {
+                    GameObject stageObject = new GameObject(typeof(Stage).Name);
+                    Stage = stageObject.AddComponent<Stage>();
+                }
+            }
             Stage.Initialize();
         }
     }
