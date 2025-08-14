@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace Juhyeon.Attackable
 {
-    [RequireComponent(typeof(MovementController), typeof(StatManager), typeof(StatusConditionManager))]
     public interface IAttackable
     {
         ActivateData Attack();
