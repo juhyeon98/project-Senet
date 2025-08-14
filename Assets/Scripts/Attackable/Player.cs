@@ -40,6 +40,14 @@ namespace Juhyeon.Attackable
             else if (input.y > 0) m_movementController.Move(Vector2.up);
         }
         #endregion
+
+        private void Awake()
+        {
+            m_movementController = GetComponent<MovementController>();
+            m_statManager = GetComponent<StatManager>();
+            m_statusConditionManager = GetComponent<StatusConditionManager>();
+            m_diceInventory = GetComponent<DiceInventory>();
+        }
     }
 }
 
