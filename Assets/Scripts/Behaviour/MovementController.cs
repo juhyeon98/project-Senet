@@ -14,7 +14,6 @@ namespace Juhyeon.Behaviour
     public class MovementController : MonoBehaviour
     {
         #region Fields
-        private Rigidbody2D m_rigidbody;
         private Animator m_animator;
         private SpriteRenderer m_spriteRenderer;
         private Vector2Int m_fieldPosition;
@@ -27,7 +26,7 @@ namespace Juhyeon.Behaviour
         #region Movement Methods
         public EMovementType Move(Vector2 direction)
         {
-            if (b_isMoving == false)
+            if (b_isMoving == true)
             {
                 return EMovementType.None;
             }
@@ -37,6 +36,9 @@ namespace Juhyeon.Behaviour
             else if (direction == Vector2Int.right) nextFieldPosition.x++;
             else if (direction == Vector2Int.up) nextFieldPosition.y--;
             else if (direction == Vector2Int.down) nextFieldPosition.y++;
+
+            // Stage 생성 로직이 없어 여기에 테스트할 코루틴을 작성
+            // StartCoroutine(MoveAnimation(direction, nextFieldPosition));
 
             if (StageManager.Instance.Stage.GetTileType(nextFieldPosition) == ETileType.Wall)
             {
@@ -49,6 +51,7 @@ namespace Juhyeon.Behaviour
                 StartCoroutine(AttackAnimation(direction));
                 return EMovementType.Attack;
             }
+            
             StartCoroutine(MoveAnimation(direction, nextFieldPosition));
             return EMovementType.Move;
         }
@@ -57,8 +60,8 @@ namespace Juhyeon.Behaviour
         {
             b_isMoving = true;
 
-            Vector2 start = m_rigidbody.position;
-            Vector2 destination = m_rigidbody.position + direction * 2;
+            Vector2 start = transform.position;
+            Vector2 destination = (Vector2)transform.position + direction * 2;
 
             yield return StartCoroutine(Lerp(start, destination, movingSpeed));
 
@@ -70,13 +73,13 @@ namespace Juhyeon.Behaviour
         {
             b_isMoving = true;
             
-            Vector2 start = m_rigidbody.position;
-            Vector2 destination = m_rigidbody.position + direction;
+            Vector2 start = transform.position;
+            Vector2 destination = (Vector2)transform.position + direction;
 
             yield return StartCoroutine(Lerp(start, destination, attackSpeed));
 
             destination = start;
-            start = m_rigidbody.position;
+            start = transform.position;
 
             yield return StartCoroutine(Lerp(start, destination, attackSpeed));
 
@@ -92,19 +95,18 @@ namespace Juhyeon.Behaviour
             {
                 elapsedTime += Time.deltaTime;
                 float fractionLerp = Mathf.Clamp01(elapsedTime / journeyTime);
-                m_rigidbody.MovePosition(Vector2.Lerp(start, destination, fractionLerp));
+                transform.position = Vector2.Lerp(start, destination, fractionLerp);
                 yield return null;
             }
-            m_rigidbody.MovePosition(destination);
+            transform.position = destination;
         }
         #endregion
 
         private void Awake()
         {
-            m_rigidbody = GetComponent<Rigidbody2D>();
             m_animator = GetComponent<Animator>();
             m_spriteRenderer = GetComponent<SpriteRenderer>();
-            m_fieldPosition = new Vector2Int((int)m_rigidbody.position.x, (int)m_rigidbody.position.y);
+            m_fieldPosition = new Vector2Int((int)transform.position.x, (int)transform.position.y);
         }
     }
 }
