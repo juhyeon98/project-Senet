@@ -5,19 +5,14 @@ namespace Juhyeon.StageSystem
 {
     public class Stage : MonoBehaviour
     {
-        private static Tile[,] field = null;
+        private Tile[,] field = new Tile[16, 16];
 
-        public static void Initialize()
+        public void Initialize()
         {
-            if (field == null)
-            {
-                field = new Tile[16, 16];
-            }
-
             // prim 알고리즘으로 생성
         }
 
-        public static IAttackable GetObject(Vector2Int position)
+        public IAttackable GetObject(Vector2Int position)
         {
             return field[position.y, position.x].OnTile;
         }
