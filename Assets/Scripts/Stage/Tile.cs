@@ -7,7 +7,7 @@ namespace Juhyeon.StageSystem
         None, Wall, Trap, WaterPuddle, PoisionPuddle, Chest
     }
 
-    public class Tile : MonoBehaviour
+    public class Tile
     {
         public ETileType Type { get; set; }
 
