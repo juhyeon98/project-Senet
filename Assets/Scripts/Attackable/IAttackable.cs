@@ -1,10 +1,16 @@
 using UnityEngine;
 
-[RequireComponent(typeof(MovementController), typeof(StatManager), typeof(StatusConditionManager))]
-public interface IAttackable
+namespace Juhyeon.Attackable
 {
-    ActivateData Attack();
+    [RequireComponent(typeof(MovementController), typeof(StatManager), typeof(StatusConditionManager))]
+    public interface IAttackable
+    {
+        ActivateData Attack();
 
-    void Damage(ActivateData data);
-    void OnDead();
+        void Damage(ActivateData data);
+        
+        void ApplyEffect(ActivateData data);
+
+        void OnDead();
+    }
 }
