@@ -1,3 +1,4 @@
+using Juhyeon.Attackable;
 using UnityEngine;
 
 namespace Juhyeon.StageSystem
@@ -16,9 +17,9 @@ namespace Juhyeon.StageSystem
             // prim 알고리즘으로 생성
         }
 
-        public static EObjectType GetObject(Vector2Int position)
+        public static IAttackable GetObject(Vector2Int position)
         {
-            return field[position.y, position.x].Object;
+            return field[position.y, position.x].OnTile;
         }
     }
 }
