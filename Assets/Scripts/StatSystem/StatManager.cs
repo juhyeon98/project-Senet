@@ -1,4 +1,3 @@
-using Juhyeon.Actor;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -42,14 +41,14 @@ namespace Juhyeon.StatSystem
 
         private void Awake()
         {
-            m_originStats = new Dictionary<EStatType, byte>
+            m_originStats = new Dictionary<EStatType, int>
             {
                 { EStatType.HP, statData.HP },
                 { EStatType.AP, statData.AP },
                 { EStatType.MOV, statData.MOV },
                 { EStatType.ATK, statData.ATK }
             };
-            m_currentStats = new Dictionary<EStatType, byte>(m_originStats);
+            m_currentStats = new Dictionary<EStatType, int>(m_originStats);
         }
     }
 }
