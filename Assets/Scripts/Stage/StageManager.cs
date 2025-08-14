@@ -12,10 +12,38 @@ namespace Juhyeon.StageSystem
             {
                 if (instance == null)
                 {
-                    instance = new StageManager();
+                    instance = FindFirstObjectByType<StageManager>();
+                    if (instance == null)
+                    {
+                        GameObject managerObject = new GameObject(typeof(StageManager).Name);
+                        instance = managerObject.AddComponent<StageManager>();
+                    }
                 }
                 return instance;
             }
+        }
+
+        public Stage Stage { get; private set; }
+
+        private void Awake()
+        {
+            if (instance != null && instance != this)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                instance = this;
+                DontDestroyOnLoad(gameObject);
+                LoadStage();
+            }
+        }
+
+        private void LoadStage()
+        {
+            GameObject stageObject = new GameObject(typeof(Stage).Name);
+            Stage = stageObject.AddComponent<Stage>();
+            Stage.Initialize();
         }
     }
 }
