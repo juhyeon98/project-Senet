@@ -15,17 +15,18 @@ namespace Juhyeon.Attackable
         private MovementController m_movementController;
         private StatManager m_statManager;
         private StatusConditionManager m_statusConditionManager;
-        private AIBeauvour m_aiBeauvour;
+        private AIBehaviour m_aiBeauvour;
         #endregion
 
         #region Override
-        public ActivateData Attack()
+        public ActivateData Attack(IAttackable attackable)
         {
+            return null;
         }
 
         public void Damage(ActivateData data) => ApplyEffect(data);
 
-        public void ApplyeEffect(ActivateData data)
+        public void ApplyEffect(ActivateData data)
         {
         }
 

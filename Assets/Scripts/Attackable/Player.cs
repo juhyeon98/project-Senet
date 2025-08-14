@@ -22,11 +22,12 @@ namespace Juhyeon.Attackable
         #endregion
 
         #region Override
-        public ActivateData Attack()
+        public ActivateData Attack(IAttackable attackable)
         {
+            return null;
         }
 
-        public void Damange(ActivateData data) => ApplyEffect(data);
+        public void Damage(ActivateData data) => ApplyEffect(data);
 
         public void ApplyEffect(ActivateData data)
         {
