@@ -1,5 +1,6 @@
 using UnityEngine;
 using Juhyeon.Behaviour;
+using Juhyeon.StatSystem;
 
 namespace Juhyeon.Attackable
 {

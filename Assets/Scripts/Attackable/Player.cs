@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Juhyeon.Behaviour;
+using Juhyeon.StatSystem;
 
 namespace Juhyeon.Attackable
 {
