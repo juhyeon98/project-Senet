@@ -14,7 +14,8 @@ namespace Juhyeon.Attackable
     public class Player : MonoBehaviour, IAttackable
     {
         #region Test
-        public BurnSO statusCondition;
+        public BurnSO burn;
+        public PoisionSO position;
         #endregion
 
         #region Field
@@ -60,7 +61,7 @@ namespace Juhyeon.Attackable
             else if (input.y < 0) m_movementController.Move(Vector2.down);
             else if (input.y > 0) m_movementController.Move(Vector2.up);
             m_statusConditionManager.UpdateStatusCondition();
-            Debug.Log(m_statManager.GetCurrentStatValue(EStatType.HP));
+            Debug.Log($"Player HP : {m_statManager.GetCurrentStatValue(EStatType.HP)}");
         }
         #endregion
 
@@ -72,7 +73,8 @@ namespace Juhyeon.Attackable
             m_diceInventory = GetComponent<DiceInventory>();
 
             #region Test
-            m_statusConditionManager.AddStatusCondition(statusCondition, this);
+            m_statusConditionManager.AddStatusCondition(burn, this);
+            m_statusConditionManager.AddStatusCondition(position, this);
             #endregion
         }
     }

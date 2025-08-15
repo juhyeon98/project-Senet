@@ -26,7 +26,6 @@ namespace Juhyeon.StatusConditionSystem
             foreach (var statusCondition in m_currentStatusConditions.Values)
             {
                 statusCondition.Update();
-
                 if (statusCondition.Count == 0)
                 {
                     statusCondition.End();

@@ -7,7 +7,7 @@ namespace Juhyeon.StatusConditionSystem
     public class PoisionSO : ScriptableObject, IStatusCondition
     {
         public uint count;
-        public uint damange;
+        public uint damage;
 
         public IAttackable Target { get; private set; }
 
@@ -21,7 +21,7 @@ namespace Juhyeon.StatusConditionSystem
         {
             Target = target;
             Count = count;
-            Damage = Damage;
+            Damage = damage;
         }
 
         public void Update()

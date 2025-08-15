@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Juhyeon.StatusConditionSystem
 {
-    [CreateAssetMenu(fileName = "Burn", menuName = "Scriptable Objects/ Status Condition/Burn")]
+    [CreateAssetMenu(fileName = "Burn", menuName = "Scriptable Objects/Status Condition/Burn")]
     public class BurnSO : ScriptableObject, IStatusCondition
     {
         public uint count;
