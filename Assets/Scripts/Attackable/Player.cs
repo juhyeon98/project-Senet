@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Juhyeon.Behaviour;
@@ -23,6 +24,7 @@ namespace Juhyeon.Attackable
         private StatManager m_statManager;
         private StatusConditionManager m_statusConditionManager;
         private DiceInventory m_diceInventory;
+        private List<DiceEffectSO> m_diceEffects = new List<DiceEffectSO>();
         public int Gold { get; private set; }
         #endregion
 
@@ -51,7 +53,17 @@ namespace Juhyeon.Attackable
         #endregion
 
         #region Player Methods
-        public void RoleDice() => m_diceInventory.RoleDice();
+        public void RoleDice()
+        {
+            m_diceEffects.Clear();
+            foreach (var effect in m_diceInventory.RoleDice())
+            {
+                m_diceEffects.Add(effect);
+            }
+            // apply
+        }
+
+        public List<DiceEffectSO> DiceEffects => m_diceEffects;
 
         public void OnMove(InputAction.CallbackContext value)
         {
@@ -84,3 +96,4 @@ namespace Juhyeon.Attackable
 // - Attack 구체화
 // - ApplyEffect 구체화
 // - OnDead 구체화
+// - RoleDice 주사위 효과 적용하기
