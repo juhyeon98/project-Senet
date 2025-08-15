@@ -3,15 +3,15 @@ using UnityEngine;
 
 namespace Juhyeon.StatusConditionSystem
 {
-    [CreateAssetMenu(fileName = "Burn", menuName = "Scriptable Objects/ Status Condition/Burn")]
-    public class BurnSO : ScriptableObject, IStatusCondition
+    [CreateAssetMenu(fileName = "Poision", menuName = "Scriptable Objects/Status Condition/Poision")]
+    public class PoisionSO : ScriptableObject, IStatusCondition
     {
         public uint count;
-        public uint damage;
+        public uint damange;
 
         public IAttackable Target { get; private set; }
 
-        public EStatusConditionType Type { get; private set; } = EStatusConditionType.Burn;
+        public EStatusConditionType Type { get; private set; } = EStatusConditionType.Poision;
 
         public uint Count { get; private set; }
 
@@ -21,7 +21,7 @@ namespace Juhyeon.StatusConditionSystem
         {
             Target = target;
             Count = count;
-            Damage = damage;
+            Damage = Damage;
         }
 
         public void Update()
