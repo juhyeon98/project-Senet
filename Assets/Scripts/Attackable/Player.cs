@@ -13,6 +13,10 @@ namespace Juhyeon.Attackable
     [RequireComponent(typeof(DiceInventory))]
     public class Player : MonoBehaviour, IAttackable
     {
+        #region Test
+        public BurnSO statusCondition;
+        #endregion
+
         #region Field
         private MovementController m_movementController;
         private StatManager m_statManager;
@@ -28,6 +32,15 @@ namespace Juhyeon.Attackable
         }
 
         public void Damage(ActivateData data) => ApplyEffect(data);
+
+        public void Damage(uint damage)
+        {
+            m_statManager.UpdateCurrentStatValue(EStatType.HP, (int)damage * -1);
+            if (m_statManager.GetCurrentStatValue(EStatType.HP) <= 0)
+            {
+                OnDead();
+            }
+        }
 
         public void ApplyEffect(ActivateData data)
         {
@@ -46,6 +59,8 @@ namespace Juhyeon.Attackable
             else if (input.x > 0) m_movementController.Move(Vector2.right);
             else if (input.y < 0) m_movementController.Move(Vector2.down);
             else if (input.y > 0) m_movementController.Move(Vector2.up);
+            m_statusConditionManager.UpdateStatusCondition();
+            Debug.Log(m_statManager.GetCurrentStatValue(EStatType.HP));
         }
         #endregion
 
@@ -55,6 +70,10 @@ namespace Juhyeon.Attackable
             m_statManager = GetComponent<StatManager>();
             m_statusConditionManager = GetComponent<StatusConditionManager>();
             m_diceInventory = GetComponent<DiceInventory>();
+
+            #region Test
+            m_statusConditionManager.AddStatusCondition(statusCondition, this);
+            #endregion
         }
     }
 }
