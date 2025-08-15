@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 770bb02af5650fa4ebfffed8a825b6a2, type: 3}
   m_Name: Poision
   m_EditorClassIdentifier: 
-  count: 0
-  damange: 0
+  count: 5
+  damage: 1

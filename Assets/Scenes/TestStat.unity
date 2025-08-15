@@ -320,6 +320,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: test-player
       objectReference: {fileID: 0}
+    - target: {fileID: 2430206269607427829, guid: a0dd1c5b860e31d458b04bffd5179c01, type: 3}
+      propertyPath: burn
+      value: 
+      objectReference: {fileID: 11400000, guid: b8658f8aacbe09d4ebefd2d868f6daa2, type: 2}
+    - target: {fileID: 2430206269607427829, guid: a0dd1c5b860e31d458b04bffd5179c01, type: 3}
+      propertyPath: bleed
+      value: 
+      objectReference: {fileID: 11400000, guid: d2ccc869cc805d74ba2aa04d4c006dcf, type: 2}
+    - target: {fileID: 2430206269607427829, guid: a0dd1c5b860e31d458b04bffd5179c01, type: 3}
+      propertyPath: position
+      value: 
+      objectReference: {fileID: 11400000, guid: 9b4c91e1fc1646247a089f28591d16ca, type: 2}
+    - target: {fileID: 2430206269607427829, guid: a0dd1c5b860e31d458b04bffd5179c01, type: 3}
+      propertyPath: statusCondition
+      value: 
+      objectReference: {fileID: 11400000, guid: 9b4c91e1fc1646247a089f28591d16ca, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
