@@ -13,6 +13,10 @@ namespace Juhyeon.Attackable
         void ApplyEffect(ActivateData data);
 
         void OnDead();
+
+        uint GetHP();
+
+        uint GetATK();
     }
 }
 
