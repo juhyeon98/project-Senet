@@ -7,6 +7,8 @@ namespace Juhyeon.Attackable
         ActivateData Attack(IAttackable attackable);
 
         void Damage(ActivateData data);
+
+        void Damage(uint damage);
         
         void ApplyEffect(ActivateData data);
 
