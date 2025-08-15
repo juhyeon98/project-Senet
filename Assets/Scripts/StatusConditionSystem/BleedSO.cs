@@ -10,7 +10,7 @@ namespace Juhyeon.StatusConditionSystem
 
         public EStatusConditionType Type { get; private set; } = EStatusConditionType.Bleed;
 
-        public uint Count { get; private set; } = 0;
+        public uint Count { get; private set; } = 1;
 
         public uint Damage { get; set; }
 
@@ -21,7 +21,7 @@ namespace Juhyeon.StatusConditionSystem
             {
                 Damage = (uint)(target.GetHP() * 0.9);
             }
-            target.Damage(Damage);
+            Target.Damage(Damage);
         }
 
         public void Update()

@@ -15,8 +15,6 @@ namespace Juhyeon.Attackable
         void OnDead();
 
         uint GetHP();
-
-        uint GetATK();
     }
 }
 

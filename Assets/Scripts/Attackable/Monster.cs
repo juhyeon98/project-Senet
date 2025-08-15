@@ -40,6 +40,8 @@ namespace Juhyeon.Attackable
         }
 
         public void OnDead() => gameObject.SetActive(false);
+
+        public uint GetHP() => (uint)m_statManager.GetCurrentStatValue(EStatType.HP);
         #endregion
 
         private void Awake()

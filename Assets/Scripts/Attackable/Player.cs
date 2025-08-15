@@ -14,11 +14,6 @@ namespace Juhyeon.Attackable
     [RequireComponent(typeof(DiceInventory))]
     public class Player : MonoBehaviour, IAttackable
     {
-        #region Test
-        public BurnSO burn;
-        public PoisionSO position;
-        #endregion
-
         #region Field
         private MovementController m_movementController;
         private StatManager m_statManager;
@@ -50,6 +45,8 @@ namespace Juhyeon.Attackable
         }
 
         public void OnDead() => gameObject.SetActive(false);
+
+        public uint GetHP() => (uint)m_statManager.GetCurrentStatValue(EStatType.HP);
         #endregion
 
         #region Player Methods
@@ -73,7 +70,6 @@ namespace Juhyeon.Attackable
             else if (input.y < 0) m_movementController.Move(Vector2.down);
             else if (input.y > 0) m_movementController.Move(Vector2.up);
             m_statusConditionManager.UpdateStatusCondition();
-            Debug.Log($"Player HP : {m_statManager.GetCurrentStatValue(EStatType.HP)}");
         }
         #endregion
 
@@ -84,10 +80,11 @@ namespace Juhyeon.Attackable
             m_statusConditionManager = GetComponent<StatusConditionManager>();
             m_diceInventory = GetComponent<DiceInventory>();
 
-            #region Test
-            m_statusConditionManager.AddStatusCondition(burn, this);
-            m_statusConditionManager.AddStatusCondition(position, this);
-            #endregion
+        }
+
+        private void Start()
+        {
+            // 상태 이상 적용은 Start 이후부터 해야함
         }
     }
 }
