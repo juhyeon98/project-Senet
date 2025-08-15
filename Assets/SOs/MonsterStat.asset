@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 512438c8fc495c745855e6de881b0b65, type: 3}
-  m_Name: PlayerStat
+  m_Script: {fileID: 11500000, guid: 43ae6ddbd122eaf4fbc08949074af5f8, type: 3}
+  m_Name: MonsterStat
   m_EditorClassIdentifier: 
-  id: 0
+  name: test monster
+  description: "\uD14C\uC2A4\uD2B8\uB97C \uC704\uD55C \uBAAC\uC2A4\uD130 \uC2A4\uD0EF"
   HP: 10
-  AP: 5
-  ATK: 10
-  prefab: {fileID: 0}
+  AP: 0
   MOV: 1
+  ATK: 3
+  prefab: {fileID: 4264776960632917642, guid: aa88c12a2724896469b05554a6d8fca1, type: 3}

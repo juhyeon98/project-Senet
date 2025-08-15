@@ -49,6 +49,11 @@ namespace Juhyeon.StatSystem
                 { EStatType.ATK, statData.ATK }
             };
             m_currentStats = new Dictionary<EStatType, int>(m_originStats);
+
+            foreach (var item in m_originStats)
+            {
+                Debug.Log($"{item.Key} : {item.Value}");
+            }
         }
     }
 }
