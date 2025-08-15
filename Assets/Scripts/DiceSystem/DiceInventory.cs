@@ -34,17 +34,16 @@ namespace Juhyeon.DiceSystem
             else maxSize = maxSize + value;
         }
 
-        public void RoleDice()
+        public IEnumerable<DiceEffectSO> RoleDice()
         {
             foreach (var dice in m_dices)
             {
                 var resultEffect = dice.RoleDice();
-                // apply
+                yield return resultEffect;
             }
         }
     }
 }
 
 // TODO
-// - 주사위를 굴렸을 때, 적용하기
 // - Awake시 기본 주사위 생성

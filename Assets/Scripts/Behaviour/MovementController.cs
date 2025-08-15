@@ -38,7 +38,7 @@ namespace Juhyeon.Behaviour
             else if (direction == Vector2Int.down) nextFieldPosition.y++;
 
             // Stage 생성 로직이 없어 여기에 테스트할 코루틴을 작성
-            // StartCoroutine(MoveAnimation(direction, nextFieldPosition));
+             StartCoroutine(MoveAnimation(direction, nextFieldPosition));
 
             if (StageManager.Instance.Stage.GetTileType(nextFieldPosition) == ETileType.Wall)
             {

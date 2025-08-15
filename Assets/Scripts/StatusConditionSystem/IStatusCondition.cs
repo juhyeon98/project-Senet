@@ -16,7 +16,9 @@ namespace Juhyeon.StatusConditionSystem
 
         uint Count { get; }
 
-        void Begin();
+        uint Damage { get; }
+
+        void Begin(IAttackable target);
 
         void Update();
 

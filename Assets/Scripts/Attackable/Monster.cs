@@ -26,11 +26,22 @@ namespace Juhyeon.Attackable
 
         public void Damage(ActivateData data) => ApplyEffect(data);
 
+        public void Damage(uint damage)
+        {
+            m_statManager.UpdateCurrentStatValue(EStatType.HP, (int)damage * -1);
+            if (m_statManager.GetCurrentStatValue(EStatType.HP) <= 0)
+            {
+                OnDead();
+            }
+        }
+
         public void ApplyEffect(ActivateData data)
         {
         }
 
         public void OnDead() => gameObject.SetActive(false);
+
+        public uint GetHP() => (uint)m_statManager.GetCurrentStatValue(EStatType.HP);
         #endregion
 
         private void Awake()
