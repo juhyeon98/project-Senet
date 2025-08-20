@@ -6,17 +6,17 @@ namespace Juhyeon.Units
 {
     public interface IAttackable : IUnit
     {
-        MovementController MovementController { get; }
+        MovementController Controller { get; }
         
-        StatManager StatManager { get; }
+        StatManager Stat { get; }
         
-        StatusConditionManager StatusConditionManager { get; }
+        StatusConditionManager StatusCondition{ get; }
         
         float CurrentAP { get; }
         
         float CurrentMOV { get; }
         
-        float ATK { get; }
+        float CurrentATK { get; }
 
         void Attack(IAttackable target);
 
