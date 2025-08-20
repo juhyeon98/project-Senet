@@ -1,3 +1,4 @@
+using Juhyeon.Units;
 using UnityEngine;
 
 namespace Juhyeon.DiceSystem
@@ -10,7 +11,7 @@ namespace Juhyeon.DiceSystem
         public string descirpt;
         #endregion
 
-        public virtual ActivateData ApplyEffect() => null;
+        public virtual void ApplyEffect(IAttackable target) { }
     }
 }
 

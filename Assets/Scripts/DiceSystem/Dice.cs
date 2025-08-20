@@ -6,9 +6,14 @@ namespace Juhyeon.DiceSystem
     {
         private DiceDataSO m_data;
 
+        public void Initialize(DiceDataSO data)
+        {
+            m_data = data;
+        }
+
         public DiceEffectSO RoleDice()
         {
-            return m_data.effects[Random.Range(0, 6)];
+            return m_data?.effects[Random.Range(0, 6)];
         }
     }
 }
