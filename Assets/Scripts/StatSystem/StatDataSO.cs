@@ -2,11 +2,6 @@ using UnityEngine;
 
 namespace Juhyeon.StatSystem
 {
-    public enum EStatType
-    {
-        HP, AP, MOV, ATK
-    }
-
     [CreateAssetMenu(fileName = "StatData", menuName = "Scriptable Objects/Stat Data")]
     public class StatDataSO : ScriptableObject
     {

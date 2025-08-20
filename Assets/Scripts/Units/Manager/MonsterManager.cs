@@ -7,7 +7,6 @@ namespace Juhyeon.Units
     public class MonsterManager : MonoBehaviour
     {
         private List<Monster> m_monsters = new List<Monster>();
-
         public List<StatDataSO> monsterStatDB;
 
         private void Awake()

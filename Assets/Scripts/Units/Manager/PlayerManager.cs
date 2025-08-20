@@ -1,10 +1,12 @@
+using Juhyeon.StatSystem;
 using UnityEngine;
 
 namespace Juhyeon.Units
 {
     public class PlayerManager : MonoBehaviour
     {
-        private Player m_player;
+        private Player m_player = null;
+        public StatDataSO playerData;
 
         private void Awake()
         {
@@ -13,8 +15,8 @@ namespace Juhyeon.Units
                 m_player = FindFirstObjectByType<Player>();
                 if (m_player == null)
                 {
-                    var player = new GameObject(typeof(Player).Name);
-                    m_player = player.AddComponent<Player>();
+                    var playerObj = Instantiate(playerData.prefab);
+                    m_player = playerObj.GetComponent<Player>();
                 }
             }
             m_player.Controller.SetStartPosition();
