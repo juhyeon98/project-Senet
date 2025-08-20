@@ -11,7 +11,11 @@ namespace Juhyeon.StageSystem
 
         public void Initialize()
         {
+            // 임시
             m_field = new Tile[16, 16];
+        }
+        public void Reset()
+        {
         }
 
         public bool IsPlayerExit()
@@ -23,5 +27,9 @@ namespace Juhyeon.StageSystem
         {
             return m_field[y, x].Unit;
         }
+
     }
 }
+
+// TODO
+// stage 필드 init 및 reset 로직 구현
