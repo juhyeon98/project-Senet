@@ -13,13 +13,13 @@ namespace Juhyeon.Units
     [RequireComponent (typeof(DiceInventory))]
     public class Player : MonoBehaviour, IAttackable
     {
-        private DiceInventory m_inventory;
-
         public MovementController Controller { get; private set; }
 
         public StatManager Stat { get; private set; }
 
         public StatusConditionManager StatusCondition { get; private set; }
+
+        public DiceInventory Inventory { get; private set; }
 
         public int Gold { get; private set; } = 0;
 
@@ -28,7 +28,7 @@ namespace Juhyeon.Units
             Controller = GetComponent<MovementController> ();
             Stat = GetComponent<StatManager> ();
             StatusCondition = GetComponent<StatusConditionManager> ();
-            m_inventory = GetComponent<DiceInventory> ();
+            Inventory = GetComponent<DiceInventory> ();
         }
 
         public void Attack(IAttackable target)
