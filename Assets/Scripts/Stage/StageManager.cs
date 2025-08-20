@@ -1,3 +1,4 @@
+using Juhyeon.Units;
 using UnityEngine;
 
 namespace Juhyeon.StageSystem
@@ -8,11 +9,37 @@ namespace Juhyeon.StageSystem
         private MonsterManager m_monsterManager;
         private Stage m_stage;
 
-        public void Initialize()
+        private void Awake()
         {
-            m_playerManager.Initialize();
-            m_monsterManager.Initialize();
-            m_stage.Initialize();
+            if (m_playerManager == null)
+            {
+                m_playerManager = FindFirstObjectByType<PlayerManager>();
+                if (m_playerManager == null)
+                {
+                    var manager = new GameObject(typeof(PlayerManager).Name);
+                    m_playerManager = manager.AddComponent<PlayerManager>();
+                }
+            }
+
+            if (m_monsterManager == null)
+            {
+                m_monsterManager = FindFirstObjectByType<MonsterManager>();
+                if (m_playerManager == null)
+                {
+                    var manager = new GameObject(typeof(MonsterManager).Name);
+                    m_monsterManager = manager.AddComponent<MonsterManager>();
+                }
+            }
+
+            if (m_stage == null)
+            {
+                m_stage = FindFirstObjectByType<Stage>();
+                if (m_stage == null)
+                {
+                    var manager = new GameObject(typeof(Stage).Name);
+                    m_stage = manager.AddComponent<Stage>();
+                }
+            }
         }
 
         public void Reset()
