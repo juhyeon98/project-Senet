@@ -1,27 +1,25 @@
 using Juhyeon.Units;
-using UnityEngine;
 
 namespace Juhyeon.StatusConditionSystem
 {
-    [CreateAssetMenu(fileName = "Poision", menuName = "Scriptable Objects/Status Condition/Poision")]
-    public class PoisionSO : ScriptableObject, IStatusCondition
+    public class PoisionStatusCondition : IStatusCondition
     {
-        public uint during;
-        public uint damage;
-
         public IAttackable Target { get; private set; }
+
         public EStatusConditionType Type { get; private set; } = EStatusConditionType.Poision;
 
         public uint During { get; private set; }
 
-        public uint Damage { get; private set; }
+        public float Damage { get; private set; }
 
-        public void Begin(IAttackable target)
+        public PoisionStatusCondition(IAttackable target, uint during, float damage)
         {
             Target = target;
             During = during;
             Damage = damage;
         }
+
+        public void Begin() { }
 
         public void Update()
         {
@@ -29,8 +27,6 @@ namespace Juhyeon.StatusConditionSystem
             During--;
         }
 
-        public void End()
-        {
-        }
+        public void End() { }
     }
 }

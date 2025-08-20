@@ -3,33 +3,40 @@ using UnityEngine;
 
 namespace Juhyeon.StatusConditionSystem
 {
-    [CreateAssetMenu(fileName = "Bleed", menuName = "Scriptable Objects/Status Condition/Bleed")]
-    public class BleedSO : ScriptableObject, IStatusCondition
+    public class BleedStatusCondition : IStatusCondition
     {
+        private float m_damage;
+
         public IAttackable Target { get; private set; }
 
         public EStatusConditionType Type { get; private set; } = EStatusConditionType.Bleed;
 
         public uint During { get; private set; } = 1;
 
-        public uint Damage { get; set; }
-
-        public void Begin(IAttackable target)
+        public BleedStatusCondition(IAttackable target)
         {
             Target = target;
+        }
+
+        public void Begin()
+        {
             if (Random.Range(0, 3) == 0)
             {
-                Damage = (uint)(target.Stat.CurrentHP * 0.9);
+                m_damage = Target.Stat.CurrentHP * 0.9f;
             }
-            Target.Damage(Damage);
+            else
+            {
+                m_damage = Target.Stat.CurrentHP / 2;
+            }
         }
 
         public void Update()
         {
+            Target.Damage(m_damage);
+            During = 0;
         }
 
-        public void End()
-        {
-        }
+        public void End() { }
     }
 }
+

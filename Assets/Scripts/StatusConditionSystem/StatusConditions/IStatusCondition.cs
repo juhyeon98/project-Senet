@@ -1,4 +1,3 @@
-
 using Juhyeon.Units;
 
 namespace Juhyeon.StatusConditionSystem
@@ -16,7 +15,7 @@ namespace Juhyeon.StatusConditionSystem
 
         uint During { get; }
 
-        void Begin(IAttackable target);
+        void Begin();
 
         void Update();
 

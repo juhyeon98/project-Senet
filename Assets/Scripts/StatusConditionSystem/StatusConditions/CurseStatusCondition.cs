@@ -1,38 +1,29 @@
 using Juhyeon.Units;
-using UnityEngine;
 
 namespace Juhyeon.StatusConditionSystem
 {
-    [CreateAssetMenu(fileName = "Curse", menuName = "Scriptable Objects/Status Condition/Curse")]
-    public class CurseSO : ScriptableObject, IStatusCondition
+    public class CurseStatusCondition : IStatusCondition
     {
-        public uint during;
-
         public IAttackable Target { get; private set; }
 
         public EStatusConditionType Type { get; private set; } = EStatusConditionType.Curse;
 
         public uint During { get; private set; }
 
-        public uint Damage { get; private set; } = 0;
-
-        public void Begin(IAttackable target)
+        public CurseStatusCondition(IAttackable target, uint during)
         {
             Target = target;
             During = during;
         }
 
+        public void Begin() { }
+
         public void Update()
         {
-            // apply
+            // Apply
             During--;
         }
 
-        public void End()
-        {
-        }
+        public void End() { }
     }
 }
-
-// TODO
-// - 효과 무효화 생각해보기

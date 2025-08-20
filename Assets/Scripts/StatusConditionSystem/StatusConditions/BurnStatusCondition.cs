@@ -3,26 +3,24 @@ using UnityEngine;
 
 namespace Juhyeon.StatusConditionSystem
 {
-    [CreateAssetMenu(fileName = "Burn", menuName = "Scriptable Objects/Status Condition/Burn")]
-    public class BurnSO : ScriptableObject, IStatusCondition
+    public class BurnStatusCondition : IStatusCondition
     {
-        public uint during;
-        public uint damage;
-
         public IAttackable Target { get; private set; }
 
         public EStatusConditionType Type { get; private set; } = EStatusConditionType.Burn;
 
         public uint During { get; private set; }
 
-        public uint Damage { get; private set; }
+        public float Damage { get; private set; }
 
-        public void Begin(IAttackable target)
+        public BurnStatusCondition(IAttackable target, uint during, float damage)
         {
             Target = target;
             During = during;
             Damage = damage;
         }
+
+        public void Begin() { }
 
         public void Update()
         {
@@ -30,8 +28,6 @@ namespace Juhyeon.StatusConditionSystem
             During--;
         }
 
-        public void End()
-        {
-        }
+        public void End() { }
     }
 }
