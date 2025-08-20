@@ -4,53 +4,22 @@ namespace Juhyeon.StageSystem
 {
     public class StageManager : MonoBehaviour
     {
-        private static StageManager instance = null;
+        private PlayerManager m_playerManager;
+        private MonsterManager m_monsterManager;
+        private Stage m_stage;
 
-        public static StageManager Instance
+        public void Initialize()
         {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = FindFirstObjectByType<StageManager>();
-                    if (instance == null)
-                    {
-                        GameObject managerObject = new GameObject(typeof(StageManager).Name);
-                        instance = managerObject.AddComponent<StageManager>();
-                    }
-                }
-                return instance;
-            }
+            m_playerManager.Initialize();
+            m_monsterManager.Initialize();
+            m_stage.Initialize();
         }
 
-        public Stage Stage { get; private set; }
-
-        private void Awake()
+        public void Reset()
         {
-            if (instance != null && instance != this)
-            {
-                Destroy(gameObject);
-            }
-            else
-            {
-                instance = this;
-                DontDestroyOnLoad(gameObject);
-                LoadStage();
-            }
-        }
-
-        private void LoadStage()
-        {
-            if (Stage == null)
-            {
-                Stage = FindFirstObjectByType<Stage>();
-                if (Stage == null)
-                {
-                    GameObject stageObject = new GameObject(typeof(Stage).Name);
-                    Stage = stageObject.AddComponent<Stage>();
-                }
-            }
-            Stage.Initialize();
+            m_playerManager.Reset();
+            m_monsterManager.Reset();
+            m_stage.Reset();
         }
     }
 }

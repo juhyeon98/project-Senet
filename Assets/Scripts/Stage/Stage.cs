@@ -1,32 +1,35 @@
-using Juhyeon.Attackable;
+using Juhyeon.Stage;
+using Juhyeon.Units;
 using UnityEngine;
 
 namespace Juhyeon.StageSystem
 {
     public class Stage : MonoBehaviour
     {
-        private Tile[,] m_field = new Tile[16, 16];
+        private Tile[,] m_field;
+        private Tile m_exitTile;
 
-        private Tile m_exitTile = null;
-
-        public void Initialize() => CreateNewStage();
-
-        public void ReGenerate()
+        public void Initialize()
         {
-            foreach (Tile tile in m_field) tile.Reset();
-            CreateNewStage();
+            // 임시
+            m_field = new Tile[16, 16];
+        }
+        public void Reset()
+        {
         }
 
-        private void CreateNewStage()
+        public bool IsPlayerExit()
         {
-            //prim algorithm
+            return m_exitTile?.Unit is Player;
         }
 
-        public ETileType GetTileType(Vector2Int position) => m_field[position.y, position.x].TileType;
+        public IUnit GetOnTile(uint x, uint y)
+        {
+            return m_field[y, x].Unit;
+        }
 
-        public IAttackable GetObject(Vector2Int position) => m_field[position.y, position.x].OnTile;
     }
 }
 
-//TODO
-// - prim 알고리즘으로 스테이지 생성 로직
+// TODO
+// stage 필드 init 및 reset 로직 구현

@@ -1,29 +1,11 @@
-using Juhyeon.Attackable;
+using Juhyeon.Units;
 using UnityEngine;
 
-namespace Juhyeon.StageSystem
+namespace Juhyeon.Stage
 {
-    public enum ETileType
-    {
-        None, Wall, Trap, WaterPuddle, PoisionPuddle, Chest, Exit
-    }
-
     public class Tile : MonoBehaviour
     {
-        public ETileType TileType { get; set; } = ETileType.None;
-
-        public IAttackable OnTile { get; set; } = null;
-        
-        public void Reset()
-        {
-            TileType = ETileType.None;
-            OnTile = null;
-        }
-
-        public virtual ActivateData ApplyEffect()
-        {
-            return null;
-        }
-
+        public IUnit Unit { get; set; } = null;
+        public Vector2Int Position { get; set; }
     }
 }
