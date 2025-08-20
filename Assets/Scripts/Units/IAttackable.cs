@@ -1,7 +1,6 @@
 using Juhyeon.Behaviour;
 using Juhyeon.StatSystem;
 using Juhyeon.StatusConditionSystem;
-using UnityEngine;
 
 namespace Juhyeon.Units
 {
