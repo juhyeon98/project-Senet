@@ -2,11 +2,6 @@ using UnityEngine;
 
 namespace Juhyeon.StatSystem
 {
-    public enum EStatType
-    {
-        HP, AP, MOV, ATK
-    }
-
     [CreateAssetMenu(fileName = "StatData", menuName = "Scriptable Objects/Stat Data")]
     public class StatDataSO : ScriptableObject
     {
@@ -16,10 +11,10 @@ namespace Juhyeon.StatSystem
         #endregion
 
         #region Data
-        [Range(0, 100)] public byte HP;
-        [Range(0, 100)] public byte AP;
-        [Range(0, 100)] public byte MOV;
-        [Range(0, 100)] public byte ATK;
+        [Range(0, 100)] public float HP;
+        [Range(0, 100)] public float AP;
+        [Range(0, 100)] public float MOV;
+        [Range(0, 100)] public float ATK;
         #endregion
 
         public GameObject prefab;

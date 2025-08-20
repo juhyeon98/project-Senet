@@ -6,54 +6,37 @@ namespace Juhyeon.StatSystem
     public class StatManager : MonoBehaviour
     {
         #region Fields
-        private Dictionary<EStatType, int> m_originStats;
-        private Dictionary<EStatType, int> m_currentStats;
-
         public StatDataSO statData;
+
+        public float CurrentHP { get; private set; }
+
+        public float CurrentAP { get; private set; }
+
+        public float CurrentMOV { get; private set; }
+
+        public float CurrentATK { get; private set; }
         #endregion
 
         #region Stat Manager Methods
-        public int? GetCurrentStatValue(EStatType statType) => GetValue(m_currentStats, statType);
-
-        public int? GetOriginStatValue(EStatType statType) => GetValue(m_originStats, statType);
-
-        private static int? GetValue(Dictionary<EStatType, int> db, EStatType type)
+        public void UpdateCurrentHP(float value)
         {
-            if (db.ContainsKey(type))
-            {
-                return db[type];
-            }
-            return null;
+            CurrentHP += value;
+            if (CurrentHP <= 0) CurrentHP = 0;
+            else if (CurrentHP >= statData.HP) CurrentHP = statData.HP;
         }
 
-        public void UpdateCurrentStatValue(EStatType statType, int value) => UpdateValue(m_currentStats, statType, value);
-
-        public void UpdateOriginStatValue(EStatType statType, int value) => UpdateValue(m_originStats, statType, value);
-
-        private static void UpdateValue(Dictionary<EStatType, int> db, EStatType type, int value)
+        public bool IsHPZero()
         {
-            if (db.ContainsKey(type))
-            {
-                db[type] += value;
-            }
+            return CurrentHP <= 0;
         }
         #endregion
 
         private void Awake()
         {
-            m_originStats = new Dictionary<EStatType, int>
-            {
-                { EStatType.HP, statData.HP },
-                { EStatType.AP, statData.AP },
-                { EStatType.MOV, statData.MOV },
-                { EStatType.ATK, statData.ATK }
-            };
-            m_currentStats = new Dictionary<EStatType, int>(m_originStats);
-
-            foreach (var item in m_originStats)
-            {
-                Debug.Log($"{item.Key} : {item.Value}");
-            }
+            CurrentHP = statData.HP;
+            CurrentAP = statData.AP;
+            CurrentMOV = statData.MOV;
+            CurrentATK = statData.ATK;
         }
     }
 }
