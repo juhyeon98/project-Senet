@@ -21,11 +21,7 @@ namespace Juhyeon.Units
 
         public StatusConditionManager StatusCondition { get; private set; }
 
-        public float CurrentAP { get; private set; } = 0;
-
-        public float CurrentMOV { get; private set; } = 0;
-
-        public float CurrentATK { get; private set; } = 0;
+        public int Gold { get; private set; } = 0;
 
         private void Awake()
         {
@@ -33,15 +29,11 @@ namespace Juhyeon.Units
             Stat = GetComponent<StatManager> ();
             StatusCondition = GetComponent<StatusConditionManager> ();
             m_inventory = GetComponent<DiceInventory> ();
-
-            CurrentAP = Stat.GetCurrentAP();
-            CurrentMOV = Stat.GetCurrentMOV();
-            CurrentATK = Stat.GetCurrentATK();
         }
 
         public void Attack(IAttackable target)
         {
-            target.Damage(CurrentATK);
+            target.Damage(Stat.CurrentATK);
         }
 
         public void Damage(float atk)

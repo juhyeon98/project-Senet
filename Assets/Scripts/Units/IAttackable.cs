@@ -11,12 +11,6 @@ namespace Juhyeon.Units
         StatManager Stat { get; }
         
         StatusConditionManager StatusCondition{ get; }
-        
-        float CurrentAP { get; }
-        
-        float CurrentMOV { get; }
-        
-        float CurrentATK { get; }
 
         void Attack(IAttackable target);
 
