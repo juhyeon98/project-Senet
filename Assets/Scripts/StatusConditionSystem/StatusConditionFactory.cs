@@ -23,4 +23,4 @@ namespace Juhyeon.StatusConditionSystem
 }
 
 // TODO
-// - 각 상태 이상 구현
+// SO 데이터를 가져와 인스턴스화(new GameObject)

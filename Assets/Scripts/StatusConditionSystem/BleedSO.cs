@@ -1,4 +1,4 @@
-using Juhyeon.Attackable;
+using Juhyeon.Units;
 using UnityEngine;
 
 namespace Juhyeon.StatusConditionSystem
@@ -10,7 +10,7 @@ namespace Juhyeon.StatusConditionSystem
 
         public EStatusConditionType Type { get; private set; } = EStatusConditionType.Bleed;
 
-        public uint Count { get; private set; } = 1;
+        public uint During { get; private set; } = 1;
 
         public uint Damage { get; set; }
 
@@ -19,7 +19,7 @@ namespace Juhyeon.StatusConditionSystem
             Target = target;
             if (Random.Range(0, 3) == 0)
             {
-                Damage = (uint)(target.GetHP() * 0.9);
+                Damage = (uint)(target.Stat.CurrentHP * 0.9);
             }
             Target.Damage(Damage);
         }

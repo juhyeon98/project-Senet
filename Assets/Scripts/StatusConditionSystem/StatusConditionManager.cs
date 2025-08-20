@@ -1,4 +1,4 @@
-using Juhyeon.Attackable;
+using Juhyeon.Units;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,31 +6,30 @@ namespace Juhyeon.StatusConditionSystem
 {
     public class StatusConditionManager : MonoBehaviour
     {
-        private Dictionary<EStatusConditionType, IStatusCondition> m_currentStatusConditions = new Dictionary<EStatusConditionType, IStatusCondition>();
+        private Dictionary<EStatusConditionType, IStatusCondition> m_currentStatus = new Dictionary<EStatusConditionType, IStatusCondition> ();
+
+        private void Awake()
+        {
+            m_currentStatus.Clear();
+        }
 
         public void AddStatusCondition(IStatusCondition statusCondition, IAttackable target)
         {
-            if (!m_currentStatusConditions.ContainsKey(statusCondition.Type))
-            {
-                m_currentStatusConditions.Add(statusCondition.Type, statusCondition);
-            }
-            else
-            {
-                m_currentStatusConditions[statusCondition.Type] = statusCondition;
-            }
-            statusCondition.Begin(target);
+            m_currentStatus.Add(statusCondition.Type, statusCondition);
+            statusCondition?.Begin(target);
         }
 
         public void UpdateStatusCondition()
         {
-            foreach (var statusCondition in m_currentStatusConditions.Values)
+            if (m_currentStatus.Count == 0) return;
+            foreach (var statusCondition in m_currentStatus.Values)
             {
-                statusCondition.Update();
-                if (statusCondition.Count == 0)
+                if (statusCondition.During == 0)
                 {
-                    statusCondition.End();
-                    m_currentStatusConditions.Remove(statusCondition.Type);
+                    m_currentStatus.Remove(statusCondition.Type);
+                    continue;
                 }
+                statusCondition?.Update();
             }
         }
     }
