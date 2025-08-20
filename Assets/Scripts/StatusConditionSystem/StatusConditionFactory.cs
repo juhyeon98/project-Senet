@@ -1,10 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Juhyeon.StatusConditionSystem
 {
     public class StatusConditionFactory
     {
-        public static IStatusCondition MakeStatusCondition(EStatusConditionType type)
+        public Dictionary<EStatusConditionType, IStatusCondition> dataMap;
+
+        public IStatusCondition MakeStatusCondition(EStatusConditionType type)
         {
             switch(type)
             {
@@ -23,4 +26,4 @@ namespace Juhyeon.StatusConditionSystem
 }
 
 // TODO
-// - 각 상태 이상 구현
+// SO 데이터를 가져와 인스턴스화(new GameObject)

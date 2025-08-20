@@ -1,5 +1,4 @@
-using UnityEngine;
-using Juhyeon.Attackable;
+using Juhyeon.Units;
 
 namespace Juhyeon.StatusConditionSystem
 {
@@ -14,11 +13,9 @@ namespace Juhyeon.StatusConditionSystem
 
         EStatusConditionType Type { get; }
 
-        uint Count { get; }
+        uint During { get; }
 
-        uint Damage { get; }
-
-        void Begin(IAttackable target);
+        void Begin();
 
         void Update();
 
