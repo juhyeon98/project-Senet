@@ -1,4 +1,5 @@
 using UnityEngine;
+using Juhyeon.Units;
 
 namespace Juhyeon.DiceSystem
 {
