@@ -6,37 +6,56 @@ namespace Juhyeon.StatSystem
     public class StatManager : MonoBehaviour
     {
         #region Fields
-        public StatDataSO statData;
+        public StatDataSO Base;
 
-        public float CurrentHP { get; private set; }
+        private float m_hp;
+        private float m_atk;
+        private float m_ap;
+        private float m_mov;
+        #endregion
 
-        public float CurrentAP { get; private set; }
-
-        public float CurrentMOV { get; private set; }
-
-        public float CurrentATK { get; private set; }
+        #region Property
+        public float HP => m_hp;
+        public float ATK => m_atk;
+        public float AP => m_ap;
+        public int MOV => m_mov;
         #endregion
 
         #region Stat Manager Methods
-        public void UpdateCurrentHP(float value)
+        public void RestoreToBase()
         {
-            CurrentHP += value;
-            if (CurrentHP <= 0) CurrentHP = 0;
-            else if (CurrentHP >= statData.HP) CurrentHP = statData.HP;
+            m_hp = Base.HP;
+            m_atk = Base.ATK;
+            m_ap = Base.AP;
+            m_move = Base.MOV;
         }
 
-        public bool IsHPZero()
+        public void UpdateHP(float value) => UpdateValue(ref m_hp, Base.HP, value);
+
+        public void UpdateATK(float value) => UpdateValue(ref m_atk, Base.ATK, value);
+
+        public void UpdateAP(float value) => UpdateValue(ref m_ap, Base.AP, value);
+
+        public void UpdateMOV(int value) => UpdateValue(ref m_mov, Base.MOV, value);
+
+        private void UpdateValue(ref float currentStat, float baseValue, float value)
         {
-            return CurrentHP <= 0;
+            currentStat += value;
+            if (currentStat > baseValue) currentStat = baseValue;
+            else if (currentStat < 0) currentStat = 0;
+        }
+
+        private void UpdateValue(ref float currentStat, int baseValue, int value)
+        {
+            currentStat += value;
+            if (currentStat > baseValue) currentStat = baseValue;
+            else if (currentStat < 0) currentStat = 0;
         }
         #endregion
 
         private void Awake()
         {
-            CurrentHP = statData.HP;
-            CurrentAP = statData.AP;
-            CurrentMOV = statData.MOV;
-            CurrentATK = statData.ATK;
+            RestoreToBase();
         }
     }
 }

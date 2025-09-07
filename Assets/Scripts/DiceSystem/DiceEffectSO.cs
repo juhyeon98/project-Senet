@@ -11,7 +11,7 @@ namespace Juhyeon.DiceSystem
         public string descirpt;
         #endregion
 
-        public virtual void ApplyEffect(IAttackable target) { }
+        public virtual void ApplyEffect(Player target) { }
     }
 }
 

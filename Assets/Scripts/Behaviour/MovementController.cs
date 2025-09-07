@@ -1,4 +1,4 @@
-using Juhyeon.Attackable;
+using Juhyeon.Units;
 using Juhyeon.StageSystem;
 using System.Collections;
 using UnityEditor.SceneManagement;
@@ -37,7 +37,7 @@ namespace Juhyeon.Behaviour
             else if (direction == Vector2Int.up) nextFieldPosition.y--;
             else if (direction == Vector2Int.down) nextFieldPosition.y++;
 
-            // Stage »ý¼º ·ÎÁ÷ÀÌ ¾ø¾î ¿©±â¿¡ Å×½ºÆ®ÇÒ ÄÚ·çÆ¾À» ÀÛ¼º
+            // Stage ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¿¡ ï¿½×½ï¿½Æ®ï¿½ï¿½ ï¿½Ú·ï¿½Æ¾ï¿½ï¿½ ï¿½Û¼ï¿½
              StartCoroutine(MoveAnimation(direction, nextFieldPosition));
 
             if (StageManager.Instance.Stage.GetTileType(nextFieldPosition) == ETileType.Wall)
