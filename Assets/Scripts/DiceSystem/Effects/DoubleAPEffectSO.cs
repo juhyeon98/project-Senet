@@ -3,7 +3,7 @@ using Juhyeon.Units;
 
 namespace Juhyeon.DiceSystem
 {
-	[CreateAssetMenu(fileName = "AP x2", menuName = "Scriptable Objects/AP x2")]
+	[CreateAssetMenu(fileName = "AP x2", menuName = "Scriptable Objects/Effect/AP x2")]
 	public class DoubleAPEffectSO : DiceEffectSO
 	{
 		#region Descripts

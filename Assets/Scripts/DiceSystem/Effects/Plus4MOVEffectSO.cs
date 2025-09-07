@@ -1,8 +1,9 @@
 using UnityEngine;
+using Juhyeon.Units;
 
 namespace Juhyeon.DiceSystem
 {
-	[CreateAssetMenu(fileName = "MOV +4", menuName = "Scriptable Objects/MOV +4")]
+	[CreateAssetMenu(fileName = "MOV +4", menuName = "Scriptable Objects/Effect/MOV +4")]
 	public class Plus4MOVEffectSO : DiceEffectSO
 	{
 		#region Descripts
