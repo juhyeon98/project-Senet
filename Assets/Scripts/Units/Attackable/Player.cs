@@ -23,28 +23,44 @@ namespace Juhyeon.Units
 
         public int Gold { get; private set; } = 0;
 
+#region Test
+        public Dice dice;
+#endregion
+
         private void Awake()
         {
-            Controller = GetComponent<MovementController> ();
-            Stat = GetComponent<StatManager> ();
-            StatusCondition = GetComponent<StatusConditionManager> ();
-            Inventory = GetComponent<DiceInventory> ();
+            Controller = GetComponent<MovementController>();
+            Stat = GetComponent<StatManager>();
+            StatusCondition = GetComponent<StatusConditionManager>();
+            Inventory = GetComponent<DiceInventory>();
+
+            Stat.RestoreToBase();
+            
+            #region Test
+            Inventory.AddDice(dice);
+            foreach (var effect in Inventory.RoleDice())
+            {
+                Debug.Log(effect.name);
+                effect.ApplyEffect(this);
+                Stat.ShowAllStat();
+            }
+            #endregion
         }
 
         public void Attack(IAttackable target)
         {
-            target.Damage(Stat.CurrentATK);
+            target.Damage(Stat.ATK);
         }
 
         public void Damage(float atk)
         {
-            Stat.UpdateCurrentHP(-atk);
-            if (Stat.IsHPZero()) Dead();
+            Stat.UpdateHP(Stat.HP - atk);
+            if (Stat.HP == 0) Dead();
         }
 
         public void Heal(float value)
         {
-            Stat.UpdateCurrentHP(value);
+            Stat.UpdateHP(Stat.HP + value);
         }
 
         public void Dead()

@@ -22,11 +22,11 @@ namespace Juhyeon.StatusConditionSystem
         {
             if (Random.Range(0, 3) == 0)
             {
-                m_damage = Target.Stat.CurrentHP * 0.9f;
+                m_damage = Target.Stat.HP * 0.9f;
             }
             else
             {
-                m_damage = Target.Stat.CurrentHP / 2;
+                m_damage = Target.Stat.HP / 2;
             }
         }
 

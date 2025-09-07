@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6057407157857637407}
   - component: {fileID: 2458793453026412444}
   - component: {fileID: 1344959314873507000}
-  - component: {fileID: 2430206269607427829}
+  - component: {fileID: 3113812513353626468}
   m_Layer: 0
   m_Name: test-player
   m_TagString: Untagged
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2430206269607427829}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Juhyeon.Attackable.Player, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1105c3333a0dada4490940b781f343a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statData: {fileID: 11400000, guid: 3b409dea23e7f9b40809f19540adcc8f, type: 2}
+  Base: {fileID: 11400000, guid: 3b409dea23e7f9b40809f19540adcc8f, type: 2}
 --- !u!114 &2458793453026412444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c91e246e5ceaa4a9fc6e390fd057e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2430206269607427829
+--- !u!114 &3113812513353626468
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -271,7 +271,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2221802814214708109}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4332235213a01df49b073c36f0b7bba7, type: 3}
+  m_Script: {fileID: 11500000, guid: dc4abc9dff30a2942bd3fb6719fe2553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statusCondition: {fileID: 11400000, guid: b8658f8aacbe09d4ebefd2d868f6daa2, type: 2}
+  dice: {fileID: 0}

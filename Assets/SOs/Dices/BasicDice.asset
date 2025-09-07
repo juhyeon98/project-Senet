@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23d6f4e740c3c904ba6deaac3b2e44f3, type: 3}
+  m_Name: BasicDice
+  m_EditorClassIdentifier: 
+  name: 
+  description: 
+  effects:
+  - {fileID: 11400000, guid: 1520395c63302d045a5dbb2aa79f004b, type: 2}
+  - {fileID: 11400000, guid: 5542d42e09cb45540afec706d2af8652, type: 2}
+  - {fileID: 11400000, guid: 5f6c558aea7699d4c88880a0fe71ec1e, type: 2}
+  - {fileID: 11400000, guid: f1e07d88e9d6c0249a549a4b5b563d9b, type: 2}
+  - {fileID: 11400000, guid: 798fa7075043a1d408dd3df179cba3cc, type: 2}
+  - {fileID: 11400000, guid: a84200b83af4e374497e46389865141e, type: 2}
+  prefab: {fileID: 2421140649686760706, guid: 6c7c7f25e387b214aac20465768dd0f7, type: 3}

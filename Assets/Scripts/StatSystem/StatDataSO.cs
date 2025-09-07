@@ -13,7 +13,7 @@ namespace Juhyeon.StatSystem
         #region Data
         [Range(0, 100)] public float HP;
         [Range(0, 100)] public float AP;
-        [Range(0, 100)] public float MOV;
+        [Range(0, 100)] public int MOV;
         [Range(0, 100)] public float ATK;
         #endregion
 

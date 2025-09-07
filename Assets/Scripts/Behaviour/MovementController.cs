@@ -1,4 +1,4 @@
-using Juhyeon.Attackable;
+using Juhyeon.Units;
 using Juhyeon.StageSystem;
 using System.Collections;
 using UnityEditor.SceneManagement;
@@ -37,21 +37,7 @@ namespace Juhyeon.Behaviour
             else if (direction == Vector2Int.up) nextFieldPosition.y--;
             else if (direction == Vector2Int.down) nextFieldPosition.y++;
 
-            // Stage 생성 로직이 없어 여기에 테스트할 코루틴을 작성
-             StartCoroutine(MoveAnimation(direction, nextFieldPosition));
-
-            if (StageManager.Instance.Stage.GetTileType(nextFieldPosition) == ETileType.Wall)
-            {
-                return EMovementType.None;
-            }
-
-            var obj = StageManager.Instance.Stage.GetObject(nextFieldPosition);
-            if (obj is Monster)
-            {
-                StartCoroutine(AttackAnimation(direction));
-                return EMovementType.Attack;
-            }
-            
+            // Check direction
             StartCoroutine(MoveAnimation(direction, nextFieldPosition));
             return EMovementType.Move;
         }
