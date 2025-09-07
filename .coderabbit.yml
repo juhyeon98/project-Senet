@@ -1,0 +1,43 @@
+language: csharp
+
+reviews:
+  request_review_on_pr_open: true
+
+  skip_title_keywords: ["[skip-review]", "[WIP]"]
+
+paths:
+  include:
+    - "Assets/Scripts/**/*.cs"
+    - "Assets/**/*.shader"
+    - "Assets/**/*.cginc"
+    - "Packages/**/*.cs"
+
+  exclude:
+    - "**/Library/**"
+    - "**/Logs/**"
+    - "**/Temp/**"
+    - "**/obj/**"
+    - "**/Builds/**"
+    - "**/ProjectSettings/**"
+    - "**/*.sln"
+    - "**/*.csproj"
+    - "**/*.unity"
+    - "**/*.prefab"
+    - "**/*.asset"
+    - "**/*.meta"
+    - "**/*.asmdef"
+
+prompts:
+  summarize: |
+    이 PR은 Unity C# 프로젝트의 변경 사항을 포함하고 있습니다. 다음 사항에 중점을 두어 한국어로 간결하게 요약해 주세요:
+    1. 주요 변경 목적과 내용
+    2. 사용자 또는 개발자에게 미치는 영향
+    3. 잠재적인 문제점이나 확인이 필요한 부분
+
+  review: |
+    당신은 Unity 개발 전문가입니다. 다음 Unity 및 C# 베스트 프랙티스를 중점적으로 검토해 주세요:
+    - `Update()`나 `FixedUpdate()` 내에서 `GetComponent`, `FindObjectOfType` 등 비용이 큰 API 호출이 있는지 확인해 주세요. `Awake()`나 `Start()`에서 캐싱하는 것을 권장해 주세요.
+    - 불필요한 `new` 키워드 사용으로 인한 가비지 컬렉션(GC) 발생 가능성을 확인해 주세요. 특히 Update 계열 메소드 내에서 주의 깊게 봐주세요.
+    - 코루틴(Coroutine)의 올바른 사용법과 중지 로직 누락 여부를 확인해 주세요.
+    - public 필드에 대해 `[SerializeField]` 어트리뷰트와 `[Tooltip]` 어트리뷰트를 적절히 사용했는지 제안해 주세요.
+    - C#의 최신 기능(LINQ, async/await 등)이 성능에 민감한 로직에서 부적절하게 사용되지는 않았는지 검토해 주세요.
