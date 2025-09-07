@@ -11,7 +11,7 @@ namespace Juhyeon.StatSystem
         private float m_hp;
         private float m_atk;
         private float m_ap;
-        private float m_mov;
+        private int m_mov;
         #endregion
 
         #region Property
@@ -27,7 +27,7 @@ namespace Juhyeon.StatSystem
             m_hp = Base.HP;
             m_atk = Base.ATK;
             m_ap = Base.AP;
-            m_move = Base.MOV;
+            m_mov = Base.MOV;
         }
 
         public void UpdateHP(float value) => UpdateValue(ref m_hp, Base.HP, value);
@@ -45,7 +45,7 @@ namespace Juhyeon.StatSystem
             else if (currentStat < 0) currentStat = 0;
         }
 
-        private void UpdateValue(ref float currentStat, int baseValue, int value)
+        private void UpdateValue(ref int currentStat, int baseValue, int value)
         {
             currentStat += value;
             if (currentStat > baseValue) currentStat = baseValue;

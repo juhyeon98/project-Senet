@@ -33,18 +33,18 @@ namespace Juhyeon.Units
 
         public void Attack(IAttackable target)
         {
-            target.Damage(Stat.CurrentATK);
+            target.Damage(Stat.ATK);
         }
 
         public void Damage(float atk)
         {
-            Stat.UpdateCurrentHP(-atk);
-            if (Stat.IsHPZero()) Dead();
+            Stat.UpdateHP(Stat.HP - atk);
+            if (Stat.HP == 0) Dead();
         }
 
         public void Heal(float value)
         {
-            Stat.UpdateCurrentHP(value);
+            Stat.UpdateHP(Stat.HP + value);
         }
 
         public void Dead()

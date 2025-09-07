@@ -37,21 +37,7 @@ namespace Juhyeon.Behaviour
             else if (direction == Vector2Int.up) nextFieldPosition.y--;
             else if (direction == Vector2Int.down) nextFieldPosition.y++;
 
-            // Stage ���� ������ ���� ���⿡ �׽�Ʈ�� �ڷ�ƾ�� �ۼ�
-             StartCoroutine(MoveAnimation(direction, nextFieldPosition));
-
-            if (StageManager.Instance.Stage.GetTileType(nextFieldPosition) == ETileType.Wall)
-            {
-                return EMovementType.None;
-            }
-
-            var obj = StageManager.Instance.Stage.GetObject(nextFieldPosition);
-            if (obj is Monster)
-            {
-                StartCoroutine(AttackAnimation(direction));
-                return EMovementType.Attack;
-            }
-            
+            // Check direction
             StartCoroutine(MoveAnimation(direction, nextFieldPosition));
             return EMovementType.Move;
         }

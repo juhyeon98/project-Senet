@@ -16,7 +16,7 @@ namespace Juhyeon.StatusConditionSystem
         public void AddStatusCondition(IStatusCondition statusCondition, IAttackable target)
         {
             m_currentStatus.Add(statusCondition.Type, statusCondition);
-            statusCondition?.Begin(target);
+            statusCondition?.Begin();
         }
 
         public void UpdateStatusCondition()
