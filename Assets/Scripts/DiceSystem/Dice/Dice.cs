@@ -8,7 +8,7 @@ namespace Juhyeon.DiceSystem
 
         public DiceEffectSO RoleDice()
         {
-            return Ddata?.effects[Random.Range(0, 6)];
+            return Data?.effects[Random.Range(0, 6)];
         }
     }
 }
