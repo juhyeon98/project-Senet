@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36a239870b35fcb4a895203d76e11406, type: 3}
-  m_Name: MOV+2EndOfTurn
+  m_Script: {fileID: 11500000, guid: 0286eb1b5abe4e54e841f48c17700af1, type: 3}
+  m_Name: MOV-2
   m_EditorClassIdentifier: 
-  name: 
-  descirpt: 
-  name: MOV +2 when end of turn
-  descript: "\uD134\uC774 \uB05D\uB0A0 \uB54C \uD589\uB3D9\uB825 +2"
+  name: MOV -2
+  descirpt: "\uD604\uC7AC MOV - 2"

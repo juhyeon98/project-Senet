@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0286eb1b5abe4e54e841f48c17700af1, type: 3}
-  m_Name: MOV-2
+  m_Script: {fileID: 11500000, guid: 0856b69147d22cb47ac07c6a0a44e1ae, type: 3}
+  m_Name: APx2
   m_EditorClassIdentifier: 
-  name: 
-  descirpt: 
+  name: AP x2
+  descirpt: "\uD604\uC7AC AP x 2"

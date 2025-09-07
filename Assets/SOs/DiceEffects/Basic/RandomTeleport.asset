@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2c9d622a0f491549bc5b1ae41c5aa67, type: 3}
-  m_Name: AP-2
+  m_Script: {fileID: 11500000, guid: edeab7323e1a86e4ca903cf01d40e0ef, type: 3}
+  m_Name: RandomTeleport
   m_EditorClassIdentifier: 
-  name: 
-  descirpt: 
+  name: RandomTeleport
+  descirpt: "\uB79C\uB364\uC73C\uB85C \uC21C\uAC04\uC774\uB3D9"
