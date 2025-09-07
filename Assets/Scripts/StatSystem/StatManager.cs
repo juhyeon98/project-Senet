@@ -21,6 +21,13 @@ namespace Juhyeon.StatSystem
         public int MOV => m_mov;
         #endregion
 
+        #region Test
+        public void ShowAllStat()
+        {
+            Debug.Log($"HP : {m_hp}\nATK : {m_atk}\nAP : {m_ap}\nMOV : {m_mov}");
+        }
+        #endregion
+
         #region Stat Manager Methods
         public void RestoreToBase()
         {
@@ -30,32 +37,26 @@ namespace Juhyeon.StatSystem
             m_mov = Base.MOV;
         }
 
-        public void UpdateHP(float value) => UpdateValue(ref m_hp, Base.HP, value);
+        public void UpdateHP(float value) => m_hp = Mathf.Clamp(value, 0, Base.HP);
 
-        public void UpdateATK(float value) => UpdateValue(ref m_atk, Base.ATK, value);
-
-        public void UpdateAP(float value) => UpdateValue(ref m_ap, Base.AP, value);
-
-        public void UpdateMOV(int value) => UpdateValue(ref m_mov, Base.MOV, value);
-
-        private void UpdateValue(ref float currentStat, float baseValue, float value)
+        public void UpdateATK(float value)
         {
-            currentStat += value;
-            if (currentStat > baseValue) currentStat = baseValue;
-            else if (currentStat < 0) currentStat = 0;
+            m_atk = value;
+            if (m_atk <= 0) m_atk = 1;
         }
 
-        private void UpdateValue(ref int currentStat, int baseValue, int value)
+        public void UpdateAP(float value)
         {
-            currentStat += value;
-            if (currentStat > baseValue) currentStat = baseValue;
-            else if (currentStat < 0) currentStat = 0;
+            m_ap = value;
+            if (m_ap <= 0) m_ap = 1;
         }
+
+        public void UpdateMOV(int value)
+        {
+            m_mov = value;
+            if (m_mov <= 0) m_mov = 1;
+        }
+
         #endregion
-
-        private void Awake()
-        {
-            RestoreToBase();
-        }
     }
 }
