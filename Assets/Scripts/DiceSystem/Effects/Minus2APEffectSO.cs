@@ -4,7 +4,7 @@ using Juhyeon.Units;
 namespace Juhyeon.DiceSystem
 {
 	[CreateAssetMenu(fileName = "AP -2", menuName = "Scriptable Objects/Effect/AP -2")]
-	public class Minus2APSO : DiceEffectSO
+	public class Minus2APEffectSO : DiceEffectSO
 	{
 		#region Descripts
 		public string name = "AP -2";
