@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -85,19 +85,6 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -150,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9a4489f0c93c524886c79f8288d6c46
-      internalID: -995178403
+      spriteID: a2cf27ecc4aa2344dae12c97539b5888
+      internalID: 458220362
       vertices: []
       indices: 
       edges: []
@@ -172,8 +159,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dffd9295365cc2f4f93baa2a3643e2e6
-      internalID: 1691586922
+      spriteID: d61d4ac619868194692a216f81fb079a
+      internalID: 1156936014
       vertices: []
       indices: 
       edges: []
@@ -194,8 +181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0aa5af90b45696542959219df316b41a
-      internalID: 1098390502
+      spriteID: 65f90083262cc244ca75396c307149c4
+      internalID: 717604643
       vertices: []
       indices: 
       edges: []
@@ -216,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 903141bae3ef3544b921198c1f08d5e3
-      internalID: 1490380981
+      spriteID: 78f24667b941f6d47b4944a831a4657c
+      internalID: 715406232
       vertices: []
       indices: 
       edges: []
@@ -238,8 +225,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3a576eceecaa4c47b89a73b8dcde665
-      internalID: -1954608710
+      spriteID: db3f62b1f5b85484da8d6de0d9f8853b
+      internalID: -876243238
       vertices: []
       indices: 
       edges: []
@@ -260,8 +247,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fa5b3fcea010584cbfdf56d86a570a5
-      internalID: -645257702
+      spriteID: ddee26a942e52084b800bf6929a897de
+      internalID: 112188120
       vertices: []
       indices: 
       edges: []
@@ -282,8 +269,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58ba11e1175e15549b889eb2914dcc8a
-      internalID: 1872326060
+      spriteID: f20a8eda0e250304a9804919a97bd87b
+      internalID: -116460797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test-sprite_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0b63d1180d334548a11198f71f12da6
+      internalID: -122226527
       vertices: []
       indices: 
       edges: []
@@ -292,7 +301,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: d16651f71808a8344a3f910914ee7411
     internalID: 0
     vertices: []
     indices: 
@@ -303,13 +312,14 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       test-sprite_0: 4475635734223996272
-      test-sprite_1: -995178403
-      test-sprite_2: 1691586922
-      test-sprite_3: 1098390502
-      test-sprite_4: 1490380981
-      test-sprite_5: -1954608710
-      test-sprite_6: -645257702
-      test-sprite_7: 1872326060
+      test-sprite_1: 458220362
+      test-sprite_2: 1156936014
+      test-sprite_3: 717604643
+      test-sprite_4: 715406232
+      test-sprite_5: -876243238
+      test-sprite_6: 112188120
+      test-sprite_7: -116460797
+      test-sprite_8: -122226527
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1365376484874285257}
   - component: {fileID: 1291674215597572047}
   - component: {fileID: 475827431292821157}
-  - component: {fileID: 7931979442956193869}
+  - component: {fileID: 8864110516724437502}
   m_Layer: 0
   m_Name: test-enemy
   m_TagString: Untagged
@@ -77,15 +77,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1478295349
+  m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -995178403, guid: 3007837b32f32374cb3f3add1b4a6f07, type: 3}
+  m_Sprite: {fileID: 458220362, guid: 3007837b32f32374cb3f3add1b4a6f07, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de5f0ebbc871044f9faa14a5f842080, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7931979442956193869
+--- !u!114 &8864110516724437502
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

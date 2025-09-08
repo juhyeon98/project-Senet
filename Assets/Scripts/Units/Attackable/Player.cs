@@ -42,7 +42,7 @@ namespace Juhyeon.Units
             {
                 Debug.Log(effect.name);
                 effect.ApplyEffect(this);
-                Stat.ShowAllStat();
+                //Stat.ShowAllStat();
             }
             #endregion
         }
