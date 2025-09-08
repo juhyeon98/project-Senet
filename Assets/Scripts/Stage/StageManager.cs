@@ -3,38 +3,14 @@ using UnityEngine;
 
 namespace Juhyeon.StageSystem
 {
-    public class StageManager : MonoBehaviour
-    {
-        private MonsterManager m_monsterManager;
-        private Stage m_stage;
-
-        private void Awake()
-        {
-            if (m_monsterManager == null)
-            {
-                m_monsterManager = FindFirstObjectByType<MonsterManager>();
-                if (m_monsterManager == null)
-                {
-                    var manager = new GameObject(typeof(MonsterManager).Name);
-                    m_monsterManager = manager.AddComponent<MonsterManager>();
-                }
-            }
-
-            if (m_stage == null)
-            {
-                m_stage = FindFirstObjectByType<Stage>();
-                if (m_stage == null)
-                {
-                    var manager = new GameObject(typeof(Stage).Name);
-                    m_stage = manager.AddComponent<Stage>();
-                }
-            }
-        }
-
-        public void Reset()
-        {
-            m_monsterManager.Reset();
-            m_stage.Reset();
-        }
-    }
+	public class StageManager : MonoBehaviour
+	{
+		#region Room Prefab
+		public GameObject allOpenRoom;
+		public GameObject oneWallRoom;
+		public GameObject passageRoom;
+		public GameObject twoWallRoom;
+		public GameObject onePassRoom;
+		#endregion
+	}
 }
